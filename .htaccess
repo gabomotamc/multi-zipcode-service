@@ -1,0 +1,39 @@
+RewriteEngine On
+#Options All -Indexes
+
+## ROUTER WWW Redirect.
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+## ROUTER HTTPS Redirect
+#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+#RewriteCond %{HTTPS} off
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ROUTER URL Rewrite
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?route=/$1 [L,QSA]
+
+# JavaScript
+AddType application/javascript js jsonp
+AddType application/json json
+
+# Video
+AddType video/mp4 mp4 m4v f4v f4p
+AddType video/ogg ogv
+AddType video/webm webm
+AddType video/x-flv flv
+
+# Web fonts
+AddType application/font-woff woff
+AddType application/vnd.ms-fontobject eot
+AddType application/x-font-ttf ttc ttf
+AddType font/opentype otf
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "*"
+    Header always set Access-Control-Max-Age "86400"
+</IfModule>

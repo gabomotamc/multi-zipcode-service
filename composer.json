@@ -1,0 +1,35 @@
+{   
+    "name": "gabomotamc/microservicesapi",
+    "description": "Consumer microservices",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Gabo Mota Chong",
+            "email": "gabomota.me@gmail.com",
+            "role": "Developer",
+            "homepage": "https://gaboworks.com"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/",
+            "Helpers\\":"helpers/",
+            "Views\\":"views/"
+        },
+        "files": [
+            "app/Controllers/Api/V1/ZipcodeController.php",
+            "app/Services/ViaCepService.php",            
+            "helpers/helpers.php",
+            "http/Api.php"
+        ]
+    },
+    "require": {
+        "coffeecode/router": "^2.0",
+        "vlucas/phpdotenv": "^5.5",
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}
