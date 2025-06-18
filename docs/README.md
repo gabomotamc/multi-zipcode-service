@@ -21,13 +21,13 @@ The request requires the following headers:
 To search for a specific zip code, use the following cURL command:
 
 ```sh
-curl --location 'http://localhost:8000/web/vanilla/multi-zipcode-service/api/v1/zipcode/search' \
+curl --location 'your-domain-to-project/api/v1/zipcode/search' \
 --header 'X-MZS-ID: 1740097724' \
 --header 'X-MZS-KEY: DA7FA2D3698F1242597DBF5D523E6' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: PHPSESSID=7172a7ba9258c7d66f4cab9e76c19bdf' \
 --data '{
-    "zipcode": 82800270
+    "zipcode": 80050-380
 }'
 
 
